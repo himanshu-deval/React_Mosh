@@ -1,20 +1,24 @@
-import { Fragment } from "react";
-
+import React, { Fragment, useState } from "react";
+import { MouseEvent } from "react";
 function ListGroup() {
-  let items=[
-    'NewYork',
-    'San Francisco',
-    'Tokyo',
-    'London',
-    'paris',
-  ]
-  // items=[];
-const lst=() =>items.map(item => <li key={item}>{item}</li>)
+  let items = ["NewYork", "San Francisco", "Tokyo", "London", "paris"];
+
+const [selected,setselected]=useState(-1);
   
   return (
     <>
-      {items.length===0?<h2>No items found</h2>:lst()}
-      
+
+      <ul className="list-group">
+        {items.map((item,index) =>(
+        <li className={selected===index ? "list-group-item active":"list-group-item"}
+          key={item}
+          onClick={()=>setselected(index)}
+          >{item}
+        </li>
+        ))}
+
+      </ul>
+
       <h1>this is a heading</h1>
       <ul className="list-group">
         <li className="list-group-item">An item</li>
