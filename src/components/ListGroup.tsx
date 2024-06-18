@@ -1,13 +1,16 @@
 import React, { Fragment, useState } from "react";
-import { MouseEvent } from "react";
-function ListGroup() {
-  let items = ["NewYork", "San Francisco", "Tokyo", "London", "paris"];
+
+interface props{
+  items:string[],
+  heading:string,
+}
+function ListGroup({items,heading}:props) {
 
 const [selected,setselected]=useState(-1);
   
   return (
     <>
-
+      <h1>{heading}</h1>
       <ul className="list-group">
         {items.map((item,index) =>(
         <li className={selected===index ? "list-group-item active":"list-group-item"}
