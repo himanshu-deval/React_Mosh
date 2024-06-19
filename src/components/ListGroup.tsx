@@ -7,7 +7,7 @@ interface props {
 }
 function ListGroup({ items, heading, onSelectItem }: props) {
   const [selected, setSelected] = useState(-1);
-
+  heading="";
   return (
     <>
       <h1>{heading}</h1>
