@@ -1,25 +1,32 @@
 import React, { Fragment, useState } from "react";
 
-interface props{
-  items:string[],
-  heading:string,
+interface props {
+  items: string[];
+  heading: string;
+  onSelectItem: (item: string) => void;
 }
-function ListGroup({items,heading}:props) {
+function ListGroup({ items, heading, onSelectItem }: props) {
+  const [selected, setSelected] = useState(-1);
 
-const [selected,setselected]=useState(-1);
-  
   return (
     <>
       <h1>{heading}</h1>
-      <ul className="list-group">
-        {items.map((item,index) =>(
-        <li className={selected===index ? "list-group-item active":"list-group-item"}
-          key={item}
-          onClick={()=>setselected(index)}
-          >{item}
-        </li>
+      <ul className="list-group list-group-flush">
+        {items.map((item, index) => (
+          <li
+            className={
+              selected === index
+                ? "list-group-item active"
+                : "list-group-item-action disabled "
+            }
+            key={item}
+            onClick={() => {setSelected(index);
+              onSelectItem(item);
+            }}
+          >
+            {item}
+          </li>
         ))}
-
       </ul>
 
       <h1>this is a heading</h1>
