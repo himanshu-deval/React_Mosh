@@ -1,3 +1,7 @@
+import App from "../../App";
+import {x} from "../Alert"
+
+
 interface Props {
   children: string,
   text:string,
@@ -6,8 +10,9 @@ interface Props {
 const Button = ({ children,text }: Props) => {
   return (
     <>
-      <button type="button" className={text} onClick={()=>}>
-        {children}
+      {x()}
+      <button type="button" className={text} onClick={()=>console.log('Clicked')}>
+        {text}
       </button>
     </>
   );
