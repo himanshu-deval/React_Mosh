@@ -1,11 +1,12 @@
 import { useState } from "react";
-import Button from "./Button";
+import styles from './button/Button.module.css'
 
 interface Props {
   children:string,
+  color?:"primary"|"secondary"|"Danger"
 }
 
-const  Alert=({children}:Props)=>{
+const  Alert=({children,color}:Props)=>{
  const [alertVisible,setAlertVisible]=useState(false);
   return(
     <>
@@ -13,7 +14,7 @@ const  Alert=({children}:Props)=>{
         <button className="btn-close" onClick={()=>setAlertVisible(false)}></button>
         </div>}
 
-       <button className="btn btn-primary" onClick={()=>{setAlertVisible(true)}}>Button</button>  
+       <button className={[styles.btn,styles['btn-'+ color]].join(' ')} onClick={()=>{setAlertVisible(true)}}>Button</button>  
     </>
   )
 }
