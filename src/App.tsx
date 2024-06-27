@@ -1,4 +1,5 @@
 import Alert from "./components/Alert";
+import NArray from "./components/Array";
 import Button from "./components/button/Button";
 import Obbjt from "./components/Obbjt"
 
@@ -16,6 +17,7 @@ return(
     /> */}
     <Obbjt>
     </Obbjt>
+    <NArray></NArray>
     
     
     <Button text="name">name</Button>
